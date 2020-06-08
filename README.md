@@ -16,11 +16,12 @@ Maven configurado
 Spring Tool Suite 4
 
 1-git clone https://github.com/vitorhora/compasso-backend.git
-2-Na classe "ClienteApplication", botão direito (Run ou Debug as Spring Boot App)
-3-Verificar qual porta a aplicação foi deployada, normalmente é 8080.
-4-Executar os requests no seu cliente favorito, exemplo SOAPUI, ou via swagger (http://localhost:8080/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api)
+2-Maven Update no projeto.
+3-Na classe "ClienteApplication", botão direito (Run ou Debug as Spring Boot App).
+4-Verificar qual porta a aplicação foi deployada, normalmente é 8080.
+5-Executar os chamdas no seu cliente favorito, exemplo SOAPUI, ou via swagger (http://localhost:8080/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
 
-Exemplo de API GET: http://localhost:8080/http://localhost:8080
+Exemplo de API GET: http://localhost:8080/api/v1/cidades
 
 ```
 
