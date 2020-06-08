@@ -28,7 +28,7 @@ Sugestões de inputs poderão ser encontrados no SOAPUI ou swagger.
 
 ## Considerações
 
-Levando em consideração o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
+Tomando como referência o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
 
 ### Pontos de Destaque
 ```
