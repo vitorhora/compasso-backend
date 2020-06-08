@@ -38,16 +38,6 @@ Levando em consideração o “Time to Market” curto disponível para entrega,
 ```
 
 
-
-## Backends consumidos. 
-
-```
-Endpoint user: https://api.github.com/users/USER_GITHUB
-
-Endpoint repos: https://api.github.com/users/USER_GITHUB/repos
-
-Endpoint starred: https://api.github.com/users/USER_GITHUB/starred{/owner}{/repo}
-```
 ## Projeto SOAPUI
 
 ```
