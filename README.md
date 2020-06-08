@@ -1,6 +1,10 @@
 # backend-springboot
-Levando em consideração o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
+Projeto responsável por implementar estudo de caso com APIs REST, utilizando Spring Boot, JPA e Bando de Dados H2.
 
+# Arquitetura
+```
+Visão de arquitetura
+```
 ![alt text](https://github.com/vitorhora/compasso-backend/blob/master/cliente/imagens/Arquitetura_Back.png)
 
 ## Executando o Projeto
@@ -21,6 +25,8 @@ Exemplo de API GET: http://localhost:8080/http://localhost:8080
 ```
 
 ## Pontos de Destaque
+Levando em consideração o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
+
 ```
     -DTO para proteger as entidades de persistência. 
 
