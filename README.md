@@ -1,5 +1,5 @@
 # front-github
-Levando em consideração o “Time to Market” curto, disponível para entrega, venho elencar alguns pontos do MVP entregue. 
+Levando em consideração o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
 
 ![alt text](https://github.com/vitorhora/compasso-backend/blob/master/cliente/imagens/Arquitetura_Back.png)
 
