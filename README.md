@@ -1,6 +1,8 @@
 # backend-springboot
 Projeto responsável por implementar estudo de caso com APIs REST, utilizando Spring Boot, JPA e Bando de Dados H2.
 
+Desafio: https://github.com/gustavodallanora/spring-boot-interview
+
 ## Arquitetura
 ```
 Visão de arquitetura
