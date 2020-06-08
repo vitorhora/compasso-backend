@@ -58,3 +58,20 @@ Fonte localizaod em: ./soapui/Cliente API Compasso.xml
 
 ```
 
+
+## Banco de Dados H2
+
+```
+Ao iniciar o projeto, ele será criado automaticamente na pasta ./data
+
+```
+
+## Sugestões
+
+```
+Para desenvolvimento, foi utilizado a ferramenta STS (Spring Tool Suite 4).
+Uma manteira para debugar o fonte e iniciar o projeto:
+
+Na classe "ClienteApplication", botão direito (Run ou Debug as Spring Boot App).
+
+```
