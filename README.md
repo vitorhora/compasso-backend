@@ -1,9 +1,35 @@
-# front-github
-Levando em consideração o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
+# backend-springboot
+Projeto responsável por implementar estudo de caso com APIs REST, utilizando Spring Boot, JPA e Bando de Dados H2.
 
+## Arquitetura
+```
+Visão de arquitetura
+```
 ![alt text](https://github.com/vitorhora/compasso-backend/blob/master/cliente/imagens/Arquitetura_Back.png)
 
-## Pontos de Destaque
+## Executando o Projeto
+
+```
+Pré-requisito:
+Java 8
+Maven configurado
+Spring Tool Suite 4
+
+1-git clone https://github.com/vitorhora/compasso-backend.git
+2-Maven Update no projeto.
+3-Na classe "ClienteApplication", botão direito (Run ou Debug as Spring Boot App).
+4-Verificar qual porta a aplicação foi implantada, normalmente é 8080.
+5-Executar os chamdas no seu cliente favorito, exemplo SOAPUI, ou via swagger (http://localhost:8080/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
+
+Exemplo de API GET: http://localhost:8080/api/v1/cidades
+
+```
+
+## Considerações
+
+Levando em consideração o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
+
+### Pontos de Destaque
 ```
     -DTO para proteger as entidades de persistência. 
 
@@ -22,7 +48,7 @@ Levando em consideração o “Time to Market” curto disponível para entrega,
     -SOAPUI e Swagger-UI como opções entregues para realizar testes e entendimento dos inputs. 
 ```
 
-## Melhorias
+### Melhorias
 ```
     -Implementar planos de Throttle.  
 
@@ -56,12 +82,3 @@ Ao iniciar o projeto, ele será criado automaticamente na pasta ./data
 
 ```
 
-## Sugestões
-
-```
-Para desenvolvimento, foi utilizado a ferramenta STS (Spring Tool Suite 4).
-Uma manteira para debugar o fonte e iniciar o projeto:
-
-Na classe "ClienteApplication", botão direito (Run ou Debug as Spring Boot App).
-
-```
