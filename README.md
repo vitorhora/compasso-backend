@@ -1,7 +1,7 @@
 # backend-springboot
 Projeto responsável por implementar estudo de caso com APIs REST, utilizando Spring Boot, JPA e Bando de Dados H2.
 
-# Arquitetura
+## Arquitetura
 ```
 Visão de arquitetura
 ```
@@ -25,9 +25,11 @@ Exemplo de API GET: http://localhost:8080/api/v1/cidades
 
 ```
 
-## Pontos de Destaque
+## Considerações
+
 Levando em consideração o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
 
+### Pontos de Destaque
 ```
     -DTO para proteger as entidades de persistência. 
 
@@ -46,7 +48,7 @@ Levando em consideração o “Time to Market” curto disponível para entrega,
     -SOAPUI e Swagger-UI como opções entregues para realizar testes e entendimento dos inputs. 
 ```
 
-## Melhorias
+### Melhorias
 ```
     -Implementar planos de Throttle.  
 
