@@ -3,6 +3,23 @@ Levando em consideração o “Time to Market” curto disponível para entrega,
 
 ![alt text](https://github.com/vitorhora/compasso-backend/blob/master/cliente/imagens/Arquitetura_Back.png)
 
+## Executando o Projeto
+
+```
+Pré-requisito:
+Java 8
+Maven configurado
+Spring Tool Suite 4
+
+1-git clone https://github.com/vitorhora/compasso-backend.git
+2-Na classe "ClienteApplication", botão direito (Run ou Debug as Spring Boot App)
+3-Verificar qual porta a aplicação foi deployada, normalmente é 8080.
+4-Executar os requests no seu cliente favorito, exemplo SOAPUI, ou via swagger (http://localhost:8080/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api)
+
+Exemplo de API GET: http://localhost:8080/http://localhost:8080
+
+```
+
 ## Pontos de Destaque
 ```
     -DTO para proteger as entidades de persistência. 
@@ -56,12 +73,3 @@ Ao iniciar o projeto, ele será criado automaticamente na pasta ./data
 
 ```
 
-## Sugestões
-
-```
-Para desenvolvimento, foi utilizado a ferramenta STS (Spring Tool Suite 4).
-Uma manteira para debugar o fonte e iniciar o projeto:
-
-Na classe "ClienteApplication", botão direito (Run ou Debug as Spring Boot App).
-
-```
