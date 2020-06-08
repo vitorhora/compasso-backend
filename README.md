@@ -26,7 +26,7 @@ Levando em consideração o “Time to Market” curto disponível para entrega,
 ```
     -Implementar planos de Throttle.  
 
-    -Levando em consideração apenas elementos técnicos, seria mais elegante o desenvolvimento de 2 	projetos distintos, cada um com seu contexto funcional (Cliente ou Cidade), realizando a 	comunicação entre eles através da API (Cliente -> Cidade), e não via repositório.Essa escolha 	iria incrementar elementos como alta coesão, representar uma API por tabela, escalabilidade 	independente, etc. Optei por implementar em apenas um projeto, pois não ira prejudicar o resultado 	final (dados requisitos iniciais), e ajudou na velocidade de desenvolvimento.  
+    -Levando em consideração apenas elementos técnicos, seria mais elegante o desenvolvimento de 2 projetos distintos, cada um com seu contexto funcional (Cliente ou Cidade), realizando a comunicação entre eles através da API (Cliente -> Cidade), e não via repositório. Essa escolha iria incrementar elementos como alta coesão, representar uma API por tabela, escalabilidade 	independente, etc. Optei por implementar em apenas um projeto, pois não ira prejudicar o resultado 	final (dados requisitos iniciais), e ajudou na velocidade de desenvolvimento.  
 
     -Criar compartilhamento corporativo de entidades.  
 
