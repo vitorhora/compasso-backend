@@ -34,7 +34,7 @@ Tomando como referência o “Time to Market” curto disponível para entrega, 
 
 ### Pontos de Destaque
 ```
-    -DTO para proteger as entidades de persistência. 
+    -DTO para trafegar objetos e proteger as entidades de persistência. 
 
     -Camadas com responsabilidades bem definidas, exposição, negócio e persistência.  
 
