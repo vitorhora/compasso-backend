@@ -13,8 +13,11 @@ Visão de arquitetura
 
 
 Pré-requisito:
+
 Java 8
+
 Maven configurado
+
 Spring Tool Suite 4
 
 1-git clone https://github.com/vitorhora/compasso-backend.git
