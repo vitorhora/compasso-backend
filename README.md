@@ -32,7 +32,7 @@ Sugestões de inputs poderão ser encontrados no SOAPUI ou swagger.
 
 Tomando como referência o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
 
-### Pontos de Destaque
+### Destaque
 ```
     -DTO para trafegar objetos e proteger as entidades de persistência. 
 
