@@ -19,69 +19,51 @@ public class CidadeBusiness {
 	
 	public CidadeDTO salvar(CidadeDTO cidadeDTO) {
 		
-		Cidade cidade = cidadeRepository.save(cidadeDTO.transformarEntity());
+		Cidade cidade = cidadeRepository.save(cidadeDTO.transformarEntity());		
 		
-		CidadeDTO cidadeSalvaDTO = new CidadeDTO();
-		cidadeSalvaDTO.setEstado(cidade.getEstado());
-		cidadeSalvaDTO.setId(cidade.getId());
-		cidadeSalvaDTO.setNome(cidade.getNome());
-		
-		return cidadeSalvaDTO;
+		return transformarDTO(cidade);
 	}
 	
 	
 	public List<CidadeDTO> consultarPorNome(String nome){
 		
-		List<Cidade> listaCidades = cidadeRepository.findByNome(nome);
+		List<Cidade> listaCidades = cidadeRepository.findByNome(nome);			
 		
-		List<CidadeDTO> listaCidadesDTO = new ArrayList<>();
-		
-		for (Cidade cidade : listaCidades) {			
-			CidadeDTO cidadeDTO = new CidadeDTO();
-			cidadeDTO.setEstado(cidade.getEstado());
-			cidadeDTO.setId(cidade.getId());
-			cidadeDTO.setNome(cidade.getNome());
-			
-			listaCidadesDTO.add(cidadeDTO);			
-		}
-		
-		return listaCidadesDTO;		
+		return criaListaCidades(listaCidades);	
 	}
 	
 	public List<CidadeDTO> consultarPorEstado(Estado uf){
 		
-		List<Cidade> listaCidades = cidadeRepository.findByEstado(uf);
-		
-		List<CidadeDTO> listaCidadesDTO = new ArrayList<>();
-		
-		for (Cidade cidade : listaCidades) {			
-			CidadeDTO cidadeDTO = new CidadeDTO();
-			cidadeDTO.setEstado(cidade.getEstado());
-			cidadeDTO.setId(cidade.getId());
-			cidadeDTO.setNome(cidade.getNome());
-			
-			listaCidadesDTO.add(cidadeDTO);			
-		}
-		
-		return listaCidadesDTO;		
+		List<Cidade> listaCidades = cidadeRepository.findByEstado(uf);			
+				
+		return criaListaCidades(listaCidades);	
 	}
 	
 		
 	public List<CidadeDTO> consultarTodos() {		
 		
 		List<Cidade> listaCidades = cidadeRepository.findAll();
+		
+		return criaListaCidades(listaCidades);		
+	}
+
+
+	private List<CidadeDTO> criaListaCidades(List<Cidade> listaCidades) {
 		List<CidadeDTO> listaCidadesDTO = new ArrayList<>();
 		
 		for (Cidade cidade : listaCidades) {
-			CidadeDTO cidadeDTO = new CidadeDTO();
-			cidadeDTO.setEstado(cidade.getEstado());
-			cidadeDTO.setId(cidade.getId());
-			cidadeDTO.setNome(cidade.getNome());
-			
+			CidadeDTO cidadeDTO = transformarDTO(cidade);			
 			listaCidadesDTO.add(cidadeDTO);			
 		}
 		
-		return listaCidadesDTO;		
-	}	
+		return listaCidadesDTO;
+	}
 
+	private CidadeDTO transformarDTO(Cidade cidade) {
+		CidadeDTO cidadeDTO = new CidadeDTO();
+		cidadeDTO.setEstado(cidade.getEstado());
+		cidadeDTO.setId(cidade.getId());
+		cidadeDTO.setNome(cidade.getNome());
+		return cidadeDTO;
+	}
 }

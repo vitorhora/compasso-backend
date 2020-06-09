@@ -22,37 +22,17 @@ public class ClienteBusiness {
 		//Verificar se existe uma cidade já cadastrada?
 		//Cidades podem repetir nome.
 				
-		Cliente cliente = clienteRepository.save(clienteDTO.transformarEntity());
+		Cliente cliente = clienteRepository.save(clienteDTO.transformarEntity());				
 		
-		ClienteDTO clienteSalvoDTO = new ClienteDTO();
-		clienteSalvoDTO.setNomeCompleto(cliente.getNomeCompleto());
-		clienteSalvoDTO.setCidadeResidente(cliente.getCidadeResidente());
-		clienteSalvoDTO.setDataNascimento(cliente.getDataNascimento());
-		clienteSalvoDTO.setId(cliente.getId());
-		clienteSalvoDTO.setIdade(cliente.getIdade());
-		clienteSalvoDTO.setSexo(cliente.getSexo());		
-		
-		return clienteSalvoDTO;
+		return transformarDTO(cliente);
 	}
 	
 	
 	public List<ClienteDTO> consultarPorNome(String nome){
 		
-		List<Cliente> listaClientes = clienteRepository.findByNomeCompleto(nome);
-		
-		List<ClienteDTO> listaClientesDTO = new ArrayList<>();
-		
-		for (Cliente cliente : listaClientes) {
-			ClienteDTO clienteDTO = new ClienteDTO();
-			clienteDTO.setCidadeResidente(cliente.getCidadeResidente());
-			clienteDTO.setDataNascimento(cliente.getDataNascimento());
-			clienteDTO.setId(cliente.getId());
-			clienteDTO.setIdade(cliente.getIdade());
-			clienteDTO.setNomeCompleto(cliente.getNomeCompleto());
-			clienteDTO.setSexo(cliente.getSexo());
-			
-			listaClientesDTO.add(clienteDTO);			
-		}
+		List<Cliente> listaClientes = clienteRepository.findByNomeCompleto(nome);		
+		List<ClienteDTO> listaClientesDTO = new ArrayList<>();		
+		criarListaClientes(listaClientes, listaClientesDTO);
 		
 		return listaClientesDTO;		
 	}	
@@ -63,18 +43,11 @@ public class ClienteBusiness {
 		ClienteDTO clienteDTO = null;
 		
 		if(cliente.isPresent()) {	
-			clienteDTO = new ClienteDTO();
-			clienteDTO.setCidadeResidente(cliente.get().getCidadeResidente());
-			clienteDTO.setDataNascimento(cliente.get().getDataNascimento());
-			clienteDTO.setId(cliente.get().getId());
-			clienteDTO.setIdade(cliente.get().getIdade());
-			clienteDTO.setNomeCompleto(cliente.get().getNomeCompleto());
-			clienteDTO.setSexo(cliente.get().getSexo());
+			clienteDTO = transformarDTO(cliente);
 		}
 		
 		return clienteDTO;		
-	}
-	
+	}	
 	
 	public void deletarPorId(Long id) {
 		
@@ -85,21 +58,41 @@ public class ClienteBusiness {
 	public List<ClienteDTO> consultarTodos() {		
 		
 		List<Cliente> listaClientes = clienteRepository.findAll();
-		List<ClienteDTO> listaClientesDTO = new ArrayList<>();
-		
-		for (Cliente cliente : listaClientes) {
-			ClienteDTO clienteDTO = new ClienteDTO();
-			clienteDTO.setCidadeResidente(cliente.getCidadeResidente());
-			clienteDTO.setDataNascimento(cliente.getDataNascimento());
-			clienteDTO.setId(cliente.getId());
-			clienteDTO.setIdade(cliente.getIdade());
-			clienteDTO.setNomeCompleto(cliente.getNomeCompleto());
-			clienteDTO.setSexo(cliente.getSexo());
-			
-			listaClientesDTO.add(clienteDTO);			
-		}
+		List<ClienteDTO> listaClientesDTO = new ArrayList<>();		
+		criarListaClientes(listaClientes, listaClientesDTO);
 		
 		return listaClientesDTO;		
-	}	
+	}
 
+
+	private void criarListaClientes(List<Cliente> listaClientes, List<ClienteDTO> listaClientesDTO) {
+		
+		for (Cliente cliente : listaClientes) {
+			ClienteDTO clienteDTO = transformarDTO(cliente);			
+			listaClientesDTO.add(clienteDTO);			
+		}
+	}
+
+	private ClienteDTO transformarDTO(Cliente cliente) {
+		ClienteDTO clienteDTO = new ClienteDTO();
+		clienteDTO.setCidadeResidente(cliente.getCidadeResidente());
+		clienteDTO.setDataNascimento(cliente.getDataNascimento());
+		clienteDTO.setId(cliente.getId());
+		clienteDTO.setIdade(cliente.getIdade());
+		clienteDTO.setNomeCompleto(cliente.getNomeCompleto());
+		clienteDTO.setSexo(cliente.getSexo());
+		return clienteDTO;
+	}
+	
+	private ClienteDTO transformarDTO(Optional<Cliente> cliente) {
+		ClienteDTO clienteDTO;
+		clienteDTO = new ClienteDTO();
+		clienteDTO.setCidadeResidente(cliente.get().getCidadeResidente());
+		clienteDTO.setDataNascimento(cliente.get().getDataNascimento());
+		clienteDTO.setId(cliente.get().getId());
+		clienteDTO.setIdade(cliente.get().getIdade());
+		clienteDTO.setNomeCompleto(cliente.get().getNomeCompleto());
+		clienteDTO.setSexo(cliente.get().getSexo());
+		return clienteDTO;
+	}
 }
