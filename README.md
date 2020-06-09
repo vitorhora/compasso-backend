@@ -1,5 +1,7 @@
 # backend-springboot
-Projeto responsável por implementar estudo de caso com APIs REST, utilizando Spring Boot, JPA e Bando de Dados H2.
+Projeto responsável por implementar estudo de caso com APIs REST, utilizando Spring Boot, JPA e Banco de Dados H2.
+
+Desafio: https://github.com/gustavodallanora/spring-boot-interview
 
 ## Arquitetura
 ```
@@ -22,16 +24,17 @@ Spring Tool Suite 4
 5-Executar os chamdas no seu cliente favorito, exemplo SOAPUI, ou via swagger (http://localhost:8080/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
 
 Exemplo de API GET: http://localhost:8080/api/v1/cidades
+Sugestões de inputs poderão ser encontrados no SOAPUI ou swagger.
 
 ```
 
 ## Considerações
 
-Levando em consideração o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
+Tomando como referência o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
 
 ### Pontos de Destaque
 ```
-    -DTO para proteger as entidades de persistência. 
+    -DTO para trafegar objetos e proteger as entidades de persistência. 
 
     -Camadas com responsabilidades bem definidas, exposição, negócio e persistência.  
 
