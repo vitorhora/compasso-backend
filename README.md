@@ -4,14 +4,14 @@ Projeto responsável por implementar estudo de caso com APIs REST, utilizando Sp
 Desafio: https://github.com/gustavodallanora/spring-boot-interview
 
 ## Arquitetura
-```
+
 Visão de arquitetura
-```
+
 ![alt text](https://github.com/vitorhora/compasso-backend/blob/master/cliente/imagens/Arquitetura_Back.png)
 
 ## Executando o Projeto
 
-```
+
 Pré-requisito:
 Java 8
 Maven configurado
@@ -26,14 +26,14 @@ Spring Tool Suite 4
 Exemplo de API GET: http://localhost:8080/api/v1/cidades
 Sugestões de inputs poderão ser encontrados no SOAPUI ou swagger.
 
-```
+
 
 ## Considerações
 
 Tomando como referência o “Time to Market” curto disponível para entrega, venho elencar alguns pontos do MVP. 
 
 ### Destaque
-```
+
     -DTO para trafegar objetos e proteger as entidades de persistência. 
 
     -Camadas com responsabilidades bem definidas, exposição, negócio e persistência.  
@@ -49,10 +49,10 @@ Tomando como referência o “Time to Market” curto disponível para entrega, 
     -Banco de dados embutido no projeto, visando agilidade no desenvolvimento.  
 
     -SOAPUI e Swagger-UI como opções entregues para realizar testes e entendimento dos inputs. 
-```
+
 
 ### Melhorias
-```
+
     -Implementar planos de Throttle.  
 
     -Levando em consideração apenas elementos técnicos, seria mais elegante o desenvolvimento de 2 projetos distintos, cada um com seu contexto funcional (Cliente ou Cidade), realizando a comunicação entre eles através da API (Cliente -> Cidade), e não via repositório. Essa escolha iria incrementar elementos como alta coesão, representar uma API por tabela, escalabilidade 	independente, etc. Optei por implementar em apenas um projeto, pois não ira prejudicar o resultado 	final (dados requisitos iniciais), e ajudou na velocidade de desenvolvimento.  
@@ -64,24 +64,23 @@ Tomando como referência o “Time to Market” curto disponível para entrega, 
     -Definição de políticas não intrusivas (de preferência), para monitoramento da saúde do WS. 
 
     -Implementação casos de testes. 
-```
+
 
 
 ## Projeto SOAPUI
 
-```
+
 Projeto que simula o consumo das APIs, via aplicativo.
 https://www.soapui.org/downloads/soapui/
 
 Fonte localizaod em: ./soapui/Cliente API Compasso.xml
 
-```
 
 
 ## Banco de Dados H2
 
-```
+
 Ao iniciar o projeto, ele será criado automaticamente na pasta ./data
 
-```
+
 
