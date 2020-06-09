@@ -52,11 +52,10 @@ public class CidadeAPI {
 		
 		List<CidadeDTO> listaCidadesDTO = cidadeService.consultarPorNome(nome);
 
-		if (listaCidadesDTO.size() > 0) {
-			return ResponseEntity.ok().body(listaCidadesDTO);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		if (listaCidadesDTO.isEmpty()) 
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);				 
+		
+		return ResponseEntity.ok().body(listaCidadesDTO);		
 	}
 
 	/**
@@ -69,12 +68,10 @@ public class CidadeAPI {
 	
 		List<CidadeDTO> listaCidadesDTO = cidadeService.consultarPorEstado(uf);
 		
-		if (listaCidadesDTO.size() > 0) {
-			return ResponseEntity.ok().body(listaCidadesDTO);
+		if (listaCidadesDTO.size() > 0) 
+			return ResponseEntity.ok().body(listaCidadesDTO);		
 		
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);				
 	}
 
 	/**
@@ -86,11 +83,10 @@ public class CidadeAPI {
 		
 		List<CidadeDTO> listaCidadeDTO = cidadeService.consultarTodos();
 
-		if(listaCidadeDTO.isEmpty()) {
+		if(listaCidadeDTO.isEmpty()) 
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}else {			
-			return ResponseEntity.ok().body(listaCidadeDTO);
-		}	
+				
+		return ResponseEntity.ok().body(listaCidadeDTO);			
 	}
 
 }

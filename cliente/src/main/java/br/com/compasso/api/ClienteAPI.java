@@ -54,11 +54,10 @@ public class ClienteAPI {
 		
 		List<ClienteDTO> listaClientesDTO = clienteService.consultarPorNome(nome);
 
-		if (listaClientesDTO.size() > 0) {
+		if (listaClientesDTO.size() > 0) 
 			return ResponseEntity.ok().body(listaClientesDTO);
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);		
 	}
 
 	/**
@@ -71,12 +70,10 @@ public class ClienteAPI {
 		
 		ClienteDTO clienteDTO = clienteService.consultarPorId(id);
 		
-		if(clienteDTO != null) {
+		if(clienteDTO != null) 
 			return ResponseEntity.ok().body(clienteDTO);
 			
-		}else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}		
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);				
 	}
 
 	/**
@@ -110,10 +107,9 @@ public class ClienteAPI {
 			clienteDTO.setId(id);
 			clienteDTO.setNomeCompleto(clienteAtualizado.getNomeCompleto());	
 			return new ResponseEntity<>(clienteService.salvar(clienteDTO), HttpStatus.OK);
-
-		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		} 
+			
+		return new ResponseEntity<>(HttpStatus.NOT_FOUND);		
 	}
 
 	/**
@@ -125,10 +121,9 @@ public class ClienteAPI {
 		
 		List<ClienteDTO> listaClientesDTO = clienteService.consultarTodos();
 
-		if(listaClientesDTO.isEmpty()) {
+		if(listaClientesDTO.isEmpty()) 
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-		}else {			
-			return ResponseEntity.ok().body(listaClientesDTO);
-		}	
+			
+		return ResponseEntity.ok().body(listaClientesDTO);			
 	}
 }
