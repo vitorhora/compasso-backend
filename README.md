@@ -86,7 +86,7 @@ Fonte localizaod em: ./soapui/Cliente API Compasso.xml
 ## Banco de Dados H2
 
 
-Ao iniciar o projeto, ele será criado automaticamente na pasta ./data
+Ao iniciar o projeto, ele será criado automaticamente na pasta "./data".
 
 
 
