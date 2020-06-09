@@ -39,36 +39,36 @@ Tomando como referência o “Time to Market” curto disponível para entrega, 
 
 ### Destaque
 
-    -DTO para trafegar objetos e proteger as entidades de persistência. 
+-DTO para trafegar objetos e proteger as entidades de persistência. 
 
-    -Camadas com responsabilidades bem definidas, exposição, negócio e persistência.  
+-Camadas com responsabilidades bem definidas, exposição, negócio e persistência.  
 
-    -Swagger para facilitar a leitura das APIs.  
+-Swagger para facilitar a leitura das APIs.  
 
-    -Contexto funcional bem demarcado, juntamente com versionamento de API.  
+-Contexto funcional bem demarcado, juntamente com versionamento de API.  
 
-    -Implementação de HTTP Codes minimamente necessários.  
+-Implementação de HTTP Codes minimamente necessários.  
 
-    -Uso eficiente do framework para acelerar a entrega.  
+-Uso eficiente do framework para acelerar a entrega.  
 
-    -Banco de dados embutido no projeto, visando agilidade no desenvolvimento.  
+-Banco de dados embutido no projeto, visando agilidade no desenvolvimento.  
 
-    -SOAPUI e Swagger-UI como opções entregues para realizar testes e entendimento dos inputs. 
+-SOAPUI e Swagger-UI como opções entregues para realizar testes e entendimento dos inputs. 
 
 
 ### Melhorias
 
-    -Implementar planos de Throttle.  
+-Implementar planos de Throttle.  
 
-    -Levando em consideração apenas elementos técnicos, seria mais elegante o desenvolvimento de 2 projetos distintos, cada um com seu contexto funcional (Cliente ou Cidade), realizando a comunicação entre eles através da API (Cliente -> Cidade), e não via repositório. Essa escolha iria incrementar elementos como alta coesão, representar uma API por tabela, escalabilidade 	independente, etc. Optei por implementar em apenas um projeto, pois não ira prejudicar o resultado 	final (dados requisitos iniciais), e ajudou na velocidade de desenvolvimento.  
+-Levando em consideração apenas elementos técnicos, seria mais elegante o desenvolvimento de 2 projetos distintos, cada um com seu contexto funcional (Cliente ou Cidade), realizando a comunicação entre eles através da API (Cliente -> Cidade), e não via repositório. Essa escolha iria incrementar elementos como alta coesão, representar uma API por tabela, escalabilidade 	independente, etc. Optei por implementar em apenas um projeto, pois não ira prejudicar o resultado 	final (dados requisitos iniciais), e ajudou na velocidade de desenvolvimento.  
 
-    -Criar compartilhamento corporativo de entidades.  
+-Criar compartilhamento corporativo de entidades.  
 
-    -Criar políticas padronizadas de tratamento de erros de negócio e técnico.  
+-Criar políticas padronizadas de tratamento de erros de negócio e técnico.  
 
-    -Definição de políticas não intrusivas (de preferência), para monitoramento da saúde do WS. 
+-Definição de políticas não intrusivas (de preferência), para monitoramento da saúde do WS. 
 
-    -Implementação casos de testes. 
+ -Implementação casos de testes. 
 
 
 
