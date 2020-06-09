@@ -26,7 +26,7 @@ Pré-requisito:
 
 4. Verificar qual porta a aplicação foi implantada, normalmente é 8080.
 
-5. Executar os chamdas no seu cliente favorito, exemplo SOAPUI ou via swagger disponibilizado no projeto (http://localhost:8080/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
+5. Executar as chamadas no seu cliente favorito, exemplo SOAPUI ou via swagger disponibilizado no projeto (http://localhost:8080/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
 
 Exemplo de API GET: http://localhost:8080/api/v1/cidades
 
