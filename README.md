@@ -57,6 +57,7 @@ Tomando como referência o “Time to Market” curto disponível para entrega, 
 * SOAPUI e Swagger-UI como opções entregues para realizar testes e entendimento dos inputs. 
 
 
+
 ### Melhorias
 
 * Implementar planos de Throttle.  
