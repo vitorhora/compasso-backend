@@ -43,7 +43,7 @@ public class ClienteBusiness {
 		ClienteDTO clienteDTO = null;
 		
 		if(cliente.isPresent()) {	
-			clienteDTO = transformarDTO(cliente);
+			clienteDTO = transformarDTO(cliente.get());
 		}
 		
 		return clienteDTO;		
@@ -82,17 +82,5 @@ public class ClienteBusiness {
 		clienteDTO.setNomeCompleto(cliente.getNomeCompleto());
 		clienteDTO.setSexo(cliente.getSexo());
 		return clienteDTO;
-	}
-	
-	private ClienteDTO transformarDTO(Optional<Cliente> cliente) {
-		ClienteDTO clienteDTO;
-		clienteDTO = new ClienteDTO();
-		clienteDTO.setCidadeResidente(cliente.get().getCidadeResidente());
-		clienteDTO.setDataNascimento(cliente.get().getDataNascimento());
-		clienteDTO.setId(cliente.get().getId());
-		clienteDTO.setIdade(cliente.get().getIdade());
-		clienteDTO.setNomeCompleto(cliente.get().getNomeCompleto());
-		clienteDTO.setSexo(cliente.get().getSexo());
-		return clienteDTO;
-	}
+	}	
 }
