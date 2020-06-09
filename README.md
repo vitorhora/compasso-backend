@@ -28,6 +28,7 @@ Spring Tool Suite 4
 5-Executar os chamdas no seu cliente favorito, exemplo SOAPUI, ou via swagger (http://localhost:8080/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
 
 Exemplo de API GET: http://localhost:8080/api/v1/cidades
+
 Sugestões de inputs poderão ser encontrados no SOAPUI ou swagger.
 
 
@@ -75,6 +76,7 @@ Tomando como referência o “Time to Market” curto disponível para entrega, 
 
 
 Projeto que simula o consumo das APIs, via aplicativo.
+
 https://www.soapui.org/downloads/soapui/
 
 Fonte localizaod em: ./soapui/Cliente API Compasso.xml
