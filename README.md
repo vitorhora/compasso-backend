@@ -55,9 +55,9 @@ Pré-requisito:
 	```
 8. Executar as chamadas no seu cliente favorito, exemplo SOAPUI ou via swagger disponibilizado no projeto (http://localhost:8081/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
 
-Exemplo de API GET: http://localhost:8081/api/v1/cidades
+	Exemplo de API GET: http://localhost:8081/api/v1/cidades
 
-Sugestões de inputs poderão ser encontrados no SOAPUI ou Swagger.
+	Sugestões de inputs poderão ser encontrados no SOAPUI ou Swagger.
 
 
 
