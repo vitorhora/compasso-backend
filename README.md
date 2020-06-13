@@ -40,18 +40,18 @@ Pré-requisito:
 	OBS: Necessário espaço com "ponto" no final.
 
 6. Verificar a imagem criada.
-```
-docker images
-```
+	```
+	docker images
+	```
 7. Iniciar a aplicação referente a imagem.
 	Microserviço cidade.
-```
-docker run -p 8081:8081 api-cidade-spring
-```
+	```
+	docker run -p 8081:8081 api-cidade-spring
+	```
 	Microserviço cliente.
-```
-docker run -p 8080:8080 api-cliente-spring
-```
+	```
+	docker run -p 8080:8080 api-cliente-spring
+	```
 8. Executar as chamadas no seu cliente favorito, exemplo SOAPUI ou via swagger disponibilizado no projeto (http://localhost:8081/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
 
 Exemplo de API GET: http://localhost:8081/api/v1/cidades
