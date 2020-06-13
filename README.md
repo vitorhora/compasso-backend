@@ -37,7 +37,7 @@ Pré-requisito:
 	```
 	docker build -f Dockerfile -t api-cliente-spring .
 	```
-	OBS: O espaço com "ponto" no final, é necessário.
+	OBS: Necessário espaço com "ponto" no final.
 
 6. Verificar a imagem criada.
 ```
