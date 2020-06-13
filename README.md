@@ -44,6 +44,7 @@ Pré-requisito:
 	docker images
 	```
 7. Iniciar a aplicação referente a imagem.
+
 	Microserviço cidade.
 	```
 	docker run -p 8081:8081 api-cidade-spring
