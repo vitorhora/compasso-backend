@@ -24,18 +24,19 @@ Pré-requisito:
 
 3. Maven "clean install" para gerar o .war na pasta target dos respectivos projetos.
 
-4. Via linha de comando, navegar até a pasta raíz do projeto.
+4. Via linha de comando, navegar até pasta raíz do projeto.
 
-5. Criar a imagem Docker, apartir do arquivo Dockerfile, encontrado na raíz dos respectivos projetos.
+5. Criar a imagem Docker, a partir do arquivo Dockerfile, encontrado na raíz dos respectivos projetos.
 
 	Microserviço cidade
-```
-docker build -f Dockerfile -t api-cidade-spring .
-```
+	```
+	docker build -f Dockerfile -t api-cidade-spring .
+	```
+
 	Microserviço cliente
-```
-docker build -f Dockerfile -t api-cliente-spring .
-```
+	```
+	docker build -f Dockerfile -t api-cliente-spring .
+	```
 	OBS: O espaço com "ponto" no final, é necessário.
 
 6. Verificar a imagem criada.
