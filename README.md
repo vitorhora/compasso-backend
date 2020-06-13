@@ -18,7 +18,10 @@ Pré-requisito:
 * Docker
 
 
-1. git clone https://github.com/vitorhora/compasso-backend.git
+1. Clonar os projetos.
+```
+git clone https://github.com/vitorhora/compasso-backend.git
+```
 
 2. Maven Update nos três projetos.
 	* ententidades-corporativas
