@@ -1,0 +1,6 @@
+br\com\compasso\CidadeApplication.class
+br\com\compasso\api\CidadeAPI.class
+br\com\compasso\business\CidadeBusiness.class
+br\com\compasso\business\repository\CidadeRepository.class
+br\com\compasso\ServletInitializer.class
+br\com\compasso\util\SwaggerConfig.class

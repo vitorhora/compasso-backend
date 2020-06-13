@@ -8,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.compasso.business.repository.ClienteRepository;
-import br.com.compasso.model.Cliente;
-import br.com.compasso.model.dto.ClienteDTO;
+import br.com.compasso.entidadescorporativas.dto.CidadeDTO;
+import br.com.compasso.entidadescorporativas.dto.ClienteDTO;
+import br.com.compasso.entidadescorporativas.modelo.Cidade;
+import br.com.compasso.entidadescorporativas.modelo.Cliente;
+
 
 @Service
 public class ClienteBusiness {
@@ -19,10 +22,11 @@ public class ClienteBusiness {
 	
 	public ClienteDTO salvar(ClienteDTO clienteDTO) {
 		
-		//Verificar se existe uma cidade já cadastrada?
-		//Cidades podem repetir nome.
+		Cidade cidade = new Cidade();
+		cidade.setNome(clienteDTO.getCidadeResidente().getNome());
+		cidade.setEstado(clienteDTO.getCidadeResidente().getEstado());
 				
-		Cliente cliente = clienteRepository.save(clienteDTO.transformarEntity());				
+		Cliente cliente = clienteRepository.save(new Cliente(clienteDTO.getId(), clienteDTO.getNomeCompleto(), clienteDTO.getSexo(), clienteDTO.getDataNascimento(), clienteDTO.getIdade(), cidade));				
 		
 		return transformarDTO(cliente);
 	}
@@ -74,8 +78,14 @@ public class ClienteBusiness {
 	}
 
 	private ClienteDTO transformarDTO(Cliente cliente) {
-		ClienteDTO clienteDTO = new ClienteDTO();
-		clienteDTO.setCidadeResidente(cliente.getCidadeResidente());
+		
+		ClienteDTO clienteDTO = new ClienteDTO();		
+		CidadeDTO cidadeDTO = new CidadeDTO();
+		
+		cidadeDTO.setNome(cliente.getCidadeResidente().getNome());
+		cidadeDTO.setEstado(cliente.getCidadeResidente().getEstado());
+		
+		clienteDTO.setCidadeResidente(cidadeDTO);
 		clienteDTO.setDataNascimento(cliente.getDataNascimento());
 		clienteDTO.setId(cliente.getId());
 		clienteDTO.setIdade(cliente.getIdade());

@@ -4,7 +4,10 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <property name="context-root" value="cliente"/>
+        <dependent-module archiveName="entidades-corporativas-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/entidades-corporativas/entidades-corporativas">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="/cliente/target/classes"/>
+        <property name="context-root" value="cliente"/>
     </wb-module>
 </project-modules>

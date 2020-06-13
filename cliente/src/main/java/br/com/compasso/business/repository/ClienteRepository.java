@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.compasso.model.Cliente;
+import br.com.compasso.entidadescorporativas.modelo.Cliente;
+
+
 
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
