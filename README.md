@@ -14,21 +14,46 @@ Visão de arquitetura.
 Pré-requisito:
 
 * Java 8 
-* Maven configurado 
-* Spring Tool Suite 4.
+* Maven 
+* Docker
 
 
 1. git clone https://github.com/vitorhora/compasso-backend.git
 
 2. Maven Update no projeto.
 
-3. Na classe "ClienteApplication", botão direito (Run ou Debug as Spring Boot App).
+3. Maven "clean install" para gerar o .war na pasta target dos respectivos projetos.
 
-4. Verificar qual porta a aplicação foi implantada, normalmente é 8080.
+4. Via linha de comando, navegar até a pasta raíz do projeto.
 
-5. Executar as chamadas no seu cliente favorito, exemplo SOAPUI ou via swagger disponibilizado no projeto (http://localhost:8080/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
+5. Criar a imagem Docker, apartir do arquivo Dockerfile, encontrado na raíz dos respectivos projetos.
 
-Exemplo de API GET: http://localhost:8080/api/v1/cidades
+	Microserviço cidade
+```
+docker build -f Dockerfile -t api-cidade-spring .
+```
+	Microserviço cliente
+```
+docker build -f Dockerfile -t api-cliente-spring .
+```
+	OBS: O espaço com "ponto" no final, é necessário.
+
+6. Verificar a imagem criada.
+```
+docker images
+```
+7. Iniciar a aplicação referente a imagem.
+	Microserviço cidade.
+```
+docker run -p 8081:8081 api-cidade-spring
+```
+	Microserviço cliente.
+```
+docker run -p 8080:8080 api-cliente-spring
+```
+8. Executar as chamadas no seu cliente favorito, exemplo SOAPUI ou via swagger disponibilizado no projeto (http://localhost:8081/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
+
+Exemplo de API GET: http://localhost:8081/api/v1/cidades
 
 Sugestões de inputs poderão ser encontrados no SOAPUI ou Swagger.
 
