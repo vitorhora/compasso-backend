@@ -26,6 +26,7 @@ Pré-requisito:
 	* cliente
 
 3. Maven "clean install" para gerar o .war na pasta target dos respectivos projetos, respeitando a seguinte ordem.
+
 	1 ententidades-corporativas
 	
 	2 cidade
