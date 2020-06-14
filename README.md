@@ -16,7 +16,7 @@ Visão Arquitetura Deployment.
 
 ![alt text](https://github.com/vitorhora/compasso-backend/blob/master/artefatos/imagens/Arquitetura_Deployment.png)
 
-## Executando o Projeto
+## Executando Projeto
 
 Pré-requisito:
 
