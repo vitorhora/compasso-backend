@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.web.bind.annotation.InitBinder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -35,7 +36,12 @@ class ClienteApplicationTests{
 		ClienteBusiness clienteBusiness;
 
 	    @Autowired
-	    private ObjectMapper objectMapper;
+	    private ObjectMapper objectMapper;	    
+	    
+	    public ClienteApplicationTests() {
+	    	// Mudança da URL de BD, pelo fato da URL do executada no container docker ser um IP.
+	    	System.setProperty("spring.datasource.url", "jdbc:h2:tcp://localhost:1521/fswdev");	    	
+		}
 
 	    
 	    @Test	  

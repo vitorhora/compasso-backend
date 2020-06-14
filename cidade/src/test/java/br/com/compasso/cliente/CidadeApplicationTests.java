@@ -31,6 +31,10 @@ class CidadeApplicationTests{
 	    @Autowired
 	    private ObjectMapper objectMapper;
 
+	    public CidadeApplicationTests() {	    	
+	    	// Mudança da URL de BD, pelo fato da URL do executada no container docker ser um IP.
+	    	System.setProperty("spring.datasource.url", "jdbc:h2:tcp://localhost:1521/fswdev");
+		}
 	    
 	    @Test	  
 	    void cadastrarCidadeSucesso() throws Exception {

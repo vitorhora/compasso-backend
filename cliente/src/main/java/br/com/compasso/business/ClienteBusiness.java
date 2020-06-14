@@ -22,10 +22,8 @@ public class ClienteBusiness {
 	
 	public ClienteDTO salvar(ClienteDTO clienteDTO) {
 		
-		Cidade cidade = new Cidade();
-		cidade.setNome(clienteDTO.getCidadeResidente().getNome());
-		cidade.setEstado(clienteDTO.getCidadeResidente().getEstado());
-				
+		Cidade cidade = new Cidade(clienteDTO.getCidadeResidente().getId(),clienteDTO.getCidadeResidente().getNome(),clienteDTO.getCidadeResidente().getEstado());
+						
 		Cliente cliente = clienteRepository.save(new Cliente(clienteDTO.getId(), clienteDTO.getNomeCompleto(), clienteDTO.getSexo(), clienteDTO.getDataNascimento(), clienteDTO.getIdade(), cidade));				
 		
 		return transformarDTO(cliente);
@@ -82,6 +80,7 @@ public class ClienteBusiness {
 		ClienteDTO clienteDTO = new ClienteDTO();		
 		CidadeDTO cidadeDTO = new CidadeDTO();
 		
+		cidadeDTO.setId(cliente.getCidadeResidente().getId());
 		cidadeDTO.setNome(cliente.getCidadeResidente().getNome());
 		cidadeDTO.setEstado(cliente.getCidadeResidente().getEstado());
 		

@@ -1,6 +1,0 @@
-br\com\compasso\api\ClienteAPI.class
-br\com\compasso\ClienteApplication.class
-br\com\compasso\ServletInitializer.class
-br\com\compasso\business\ClienteBusiness.class
-br\com\compasso\business\repository\ClienteRepository.class
-br\com\compasso\util\SwaggerConfig.class
