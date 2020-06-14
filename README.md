@@ -16,8 +16,6 @@ Pré-requisito:
 * Java 8 
 * Maven 
 * Docker
-* H2 Docker
-
 
 ### Banco H2 Docker
 
@@ -28,7 +26,7 @@ Pré-requisito:
 	```
 2. Executar imagem.
 
-	O comando irá habilitar porta para acesso e configurar volume persistente, com objetivo de tormar o BD não efêmero.
+	O comando irá habilitar porta para acesso e configurar volume persistente, com objetivo de tormar o dado não efêmero.
 	```
 	docker run -d -p 1521:1521 -p 81:81 -v /path/to/local/data_dir:/opt/h2-data -e H2_OPTIONS='-ifNotExists' --name=MyH2Instance oscarfonts/h2
 	```
@@ -37,7 +35,7 @@ Pré-requisito:
 	```
 	docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' MyH2Instance
 	```
-	OBS: Esse IP servirá para configurar o "application.properties", referente a conexão com o BD dos microserviços, solicitado no passo 3.2.
+	OBS: Esse IP servirá para configurar o "application.properties", referente a conexão com o BD dos microserviços, que será solicitado no passo 3.2 - Microserviços.
 
 ### Microserviços
 
@@ -53,9 +51,10 @@ Pré-requisito:
 
 3. Verificar ou ajustar o IP de conexão com o BD.
 
-	3.1. Navergar até o arquivo "application.properties" localizado em	
+	3.1. Navergar até os arquivos "application.properties" dos projetos cidade e cliente respectivamente:	
 	```
 	\cidade\src\main\resources
+	\cliente\src\main\resources
 	```
 	
 	3.2. Na propriedade "spring.datasource.url", verificar ou ajustar, conforme IP mostrado no passo 3, referente a configuração de Banco de Dados.
