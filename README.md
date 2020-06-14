@@ -28,9 +28,9 @@ Pré-requisito:
 
 1. Baixar imagem do H2.
 	
-	```bash
+	```
 	docker pull oscarfonts/h2
-	```bash
+	```
 2. Executar imagem.
 
 	O comando irá habilitar porta para acesso e configurar volume persistente, com objetivo de tormar o dado não efêmero.
@@ -126,7 +126,7 @@ Fonte localizado em: ./soapui/ClienteAPICompasso.xml
 
 Configurações encontradas no arquivo "application.properties" do projeto cidade e cliente.
 
-```bash
+```
 spring.datasource.url=jdbc:h2:tcp://172.17.0.2:1521/fswdev
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
