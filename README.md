@@ -28,9 +28,9 @@ Pré-requisito:
 
 1. Baixar imagem do H2.
 	
-	```
+	```bash
 	docker pull oscarfonts/h2
-	```
+	```bash
 2. Executar imagem.
 
 	O comando irá habilitar porta para acesso e configurar volume persistente, com objetivo de tormar o dado não efêmero.
