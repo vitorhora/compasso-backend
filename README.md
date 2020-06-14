@@ -16,7 +16,30 @@ Pré-requisito:
 * Java 8 
 * Maven 
 * Docker
+* H2 Docker
 
+
+### Banco H2 Docker
+
+1. Baixar imagem do H2.
+	
+	```
+	docker pull oscarfonts/h2
+	```
+2. Executar imagem.
+
+	O comando irá habilitar porta para acesso e configurar volumes para que não seja efêmero.
+	```
+	docker run -d -p 1521:1521 -p 81:81 -v /path/to/local/data_dir:/opt/h2-data -e H2_OPTIONS='-ifNotExists' --name=MyH2Instance oscarfonts/h2
+	```
+3. Verificar IP que o serviço ficou disponível.
+
+	```
+	docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' MyH2Instance
+	```
+	OBS: Esse IP servirá para configurar o "application.properties", referente a conexão com o BD dos microserviços, solicitado no passo 3.2.
+
+### Microserviços
 
 1. Clonar os projetos.
 	```
@@ -27,6 +50,15 @@ Pré-requisito:
 	* ententidades-corporativas
 	* cidade
 	* cliente
+
+3. Verificar ou ajustar o IP de conexão com o BD.
+
+	3.1. Navergar até o arquivo "application.properties" localizado em	
+	```
+	\cidade\src\main\resources
+	```
+	
+	3.2. Na propriedade "spring.datasource.url", verificar ou ajustar, conforme IP mostrado no passo 3, referente a configuração de Banco de Dados.
 
 3. Maven "clean install" para gerar o .war na pasta target dos respectivos projetos, respeitando a seguinte ordem.
 
