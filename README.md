@@ -51,7 +51,7 @@ Pré-requisito:
 
 3. Verificar ou ajustar o IP de conexão com o BD.
 
-	3.1. Navergar até os arquivos "application.properties" localizados em:	
+	3.1. Navergar até os arquivos "application.properties" dos projetos cidade e cliente respectivamente:	
 	```
 	\cidade\src\main\resources
 	\cliente\src\main\resources
