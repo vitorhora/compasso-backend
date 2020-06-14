@@ -14,8 +14,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableJpaRepositories
 public class CidadeApplication {
 
-	public static void main(String[] args) {
-			
+	public static void main(String[] args) {		
+		
 		 SpringApplication app = new SpringApplication(CidadeApplication.class);	        
 	     app.run(args);
 	}
