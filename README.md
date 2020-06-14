@@ -16,7 +16,7 @@ Visão Arquitetura Deployment.
 
 ![alt text](https://github.com/vitorhora/compasso-backend/blob/master/artefatos/imagens/Arquitetura_Deployment.png)
 
-## Executando o Projeto
+## Executando Projeto
 
 Pré-requisito:
 
@@ -96,11 +96,11 @@ Pré-requisito:
 7. Iniciar a aplicação referente a imagem.
 
 	Microserviço cidade.
-	```
+	```bash
 	docker run -p 8081:8081 api-cidade-spring
 	```
 	Microserviço cliente.
-	```
+	```bash
 	docker run -p 8080:8080 api-cliente-spring
 	```
 8. Executar as chamadas no seu cliente favorito, exemplo SOAPUI ou via swagger disponibilizado no projeto (http://localhost:8081/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
@@ -118,7 +118,7 @@ Projeto que simula o consumo das APIs, via aplicativo.
 
 https://www.soapui.org/downloads/soapui/
 
-Fonte localizado em: ./soapui/ClienteAPICompasso.xml
+Fonte localizado em: https://github.com/vitorhora/compasso-backend/tree/master/artefatos/soapui
 
 
 
