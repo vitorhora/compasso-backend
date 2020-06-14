@@ -37,7 +37,7 @@ Pré-requisito:
 	```
 	docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' MyH2Instance
 	```
-	OBS: Esse IP servirá para configurar o "application.properties", referente a conexão com o BD dos microserviços, solicitado no passo 3.2.
+	OBS: Esse IP servirá para configurar o "application.properties", referente a conexão com o BD dos microserviços, que será solicitado no passo 3.2.
 
 ### Microserviços
 
