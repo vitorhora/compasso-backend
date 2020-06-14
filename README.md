@@ -5,9 +5,13 @@ Desafio: https://github.com/gustavodallanora/spring-boot-interview
 
 ## Arquitetura
 
-Visão de arquitetura.
+Visão Arquitetura Projeto.
 
-![alt text](https://github.com/vitorhora/compasso-backend/blob/master/cliente/imagens/Arquitetura_Back.png)
+![alt text](https://github.com/vitorhora/compasso-backend/blob/master/artefatos/imagens/Arquitetura_Projeto.png)
+
+Visão Arquitetura Deployment.
+
+![alt text](https://github.com/vitorhora/compasso-backend/blob/master/artefatos/imagens/Arquitetura_Deployment.png)
 
 ## Executando o Projeto
 
