@@ -74,16 +74,16 @@ Pré-requisito:
 	
 	3- cliente
 
-4. Via linha de comando, navegar até pasta raíz do projeto.
+4. Via linha de comando, navegar até pasta raíz do projeto cidade e cliente.
 
 5. Criar a imagem Docker, a partir do arquivo Dockerfile, encontrado na raíz dos respectivos projetos.
 
-	Microserviço cidade
+	cidade
 	```
 	docker build -f Dockerfile -t api-cidade-spring .
 	```
 
-	Microserviço cliente
+	cliente
 	```
 	docker build -f Dockerfile -t api-cliente-spring .
 	```
