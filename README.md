@@ -28,7 +28,7 @@ Pré-requisito:
 	```
 2. Executar imagem.
 
-	O comando irá habilitar porta para acesso e configurar volumes para que não seja efêmero.
+	O comando irá habilitar porta para acesso e configurar volume persistente, com objetivo de tormar o BD não efêmero.
 	```
 	docker run -d -p 1521:1521 -p 81:81 -v /path/to/local/data_dir:/opt/h2-data -e H2_OPTIONS='-ifNotExists' --name=MyH2Instance oscarfonts/h2
 	```
