@@ -51,7 +51,7 @@ Pré-requisito:
 	git clone https://github.com/vitorhora/compasso-backend.git
 	```
 
-2. Maven Update nos três projetos, para realizar download das dependências.
+2. Realizar "Maven Update" nos três projetos, para download das dependências.
 	* ententidades-corporativas
 	* cidade
 	* cliente
