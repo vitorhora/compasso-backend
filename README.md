@@ -111,44 +111,6 @@ Pré-requisito:
 
 
 
-## Considerações
-
-Tomando como referência o “Time to Market” curto disponível para entrega, elenco alguns pontos do MVP. 
-
-### Destaque
-
-* DTO para trafegar objetos e proteger as entidades de persistência. 
-
-* Camadas com responsabilidades bem definidas ( exposição, negócio e persistência). 
-
-* Contexto funcional das APIs coeso, juntamente com versionamento.  
-
-* Implementação de HTTP Codes minimamente necessários.  
-
-* Uso eficiente do framework para acelerar a entrega.  
-
-* Banco de dados embutido no projeto, visando agilidade no desenvolvimento.  
-
-* SOAPUI e Swagger-UI como opções para realizar testes e entendimento das APIs/Inputs. 
-
-
-
-### Melhorias
-
-* Implementar planos de Throttle.  
-
-* Levando em consideração apenas elementos técnicos, seria mais elegante o desenvolvimento de 2 projetos distintos. Cada um com seu contexto funcional (Cliente ou Cidade), realizando possíveis comunicações entre eles através da API (Cliente -> Cidade), e não via repositório, incrementando boas práticas como alta coesão, baixo acoplamento, representação de uma API por tabela, escalabilidade e 	independente. Optei por implementar em apenas um projeto, pois não prejudica o resultado 	final (dados requisitos iniciais), e ajudou na velocidade de desenvolvimento.  
-
-* Criar compartilhamento corporativo de entidades.  
-
-* Criar políticas padronizadas de tratamento de erros de negócio e técnico.  
-
-* Definição de políticas não intrusivas (de preferência), para monitoramento da saúde do WS. 
-
-* Implementação casos de testes. 
-
-
-
 ## Projeto SOAPUI
 
 
