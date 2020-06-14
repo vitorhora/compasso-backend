@@ -124,8 +124,6 @@ Fonte localizado em: ./soapui/ClienteAPICompasso.xml
 
 ## Banco de Dados H2
 
-Console: http://localhost:81
-
 Configurações encontradas no arquivo "application.properties" do projeto cidade e cliente.
 
 ```
@@ -135,5 +133,6 @@ spring.datasource.username=sa
 spring.datasource.password=
 ```
 
+Console: http://localhost:81
 
 
