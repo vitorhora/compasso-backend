@@ -96,11 +96,11 @@ Pré-requisito:
 7. Iniciar a aplicação referente a imagem.
 
 	Microserviço cidade.
-	```
+	```bash
 	docker run -p 8081:8081 api-cidade-spring
 	```
 	Microserviço cliente.
-	```
+	```bash
 	docker run -p 8080:8080 api-cliente-spring
 	```
 8. Executar as chamadas no seu cliente favorito, exemplo SOAPUI ou via swagger disponibilizado no projeto (http://localhost:8081/swagger-ui.html#/cidade-api e http://localhost:8080/swagger-ui.html#/cliente-api).
@@ -126,7 +126,7 @@ Fonte localizado em: ./soapui/ClienteAPICompasso.xml
 
 Configurações encontradas no arquivo "application.properties" do projeto cidade e cliente.
 
-```
+```bash
 spring.datasource.url=jdbc:h2:tcp://172.17.0.2:1521/fswdev
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
