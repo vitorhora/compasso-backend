@@ -118,7 +118,7 @@ Projeto que simula o consumo das APIs, via aplicativo.
 
 https://www.soapui.org/downloads/soapui/
 
-Fonte localizado em: ./soapui/ClienteAPICompasso.xml
+Fonte localizado em: https://github.com/vitorhora/compasso-backend/tree/master/artefatos/soapui
 
 
 
