@@ -125,7 +125,14 @@ Fonte localizado em: ./soapui/ClienteAPICompasso.xml
 ## Banco de Dados H2
 
 
-Ao iniciar o projeto, será criado automaticamente na pasta "./data".
+Configurações encontradas em:
+
+```
+spring.datasource.url=jdbc:h2:tcp://172.17.0.2:1521/fswdev
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+```
 
 
 
