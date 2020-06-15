@@ -9,6 +9,7 @@ Visão Arquitetura Projeto.
 
 ![alt text](https://github.com/vitorhora/compasso-backend/blob/master/artefatos/imagens/Arquitetura_Projeto.png)
 
+![Alt text](/artefatos/imagens/Arquitetura_Projeto.png?raw=true "Optional Title")
 
 
 
