@@ -113,7 +113,7 @@ Pré-requisito:
 ## Projeto SOAPUI
 
 
-Projeto que simula o consumo das APIs, via aplicativo.
+Projeto que simula o consumo das APIs via aplicativo.
 
 https://www.soapui.org/downloads/soapui/
 
