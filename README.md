@@ -7,15 +7,13 @@ Desafio: https://github.com/gustavodallanora/spring-boot-interview
 
 Visão Arquitetura Projeto.
 
-![alt text](https://github.com/vitorhora/compasso-backend/blob/master/artefatos/imagens/Arquitetura_Projeto.png)
-
-![Alt text](/artefatos/imagens/Arquitetura_Projeto.png?raw=true "Optional Title")
+![Alt text](/artefatos/imagens/Arquitetura_Projeto.png?raw=true "Arquitetura Projeto")
 
 
 
 Visão Arquitetura Deployment.
 
-![alt text](https://github.com/vitorhora/compasso-backend/blob/master/artefatos/imagens/Arquitetura_Deployment.png)
+![Alt text](/artefatos/imagens/Arquitetura_Deployment.png?raw=true "Arquitetura Deployment")
 
 ## Executando Projeto
 
