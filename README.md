@@ -1,5 +1,5 @@
 # backend-springboot
-Projeto responsável por implementar estudo de caso com APIs REST, utilizando Spring Boot, JPA, Banco de Dados H2 e containers Docker.
+Projeto responsável por implementar microserviços RESTful, utilizando Spring Boot, JPA, Banco de Dados H2 e containers Docker.
 
 ## Caso de Uso
 
