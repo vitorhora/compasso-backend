@@ -2,5 +2,9 @@
 /.project
 /.tern-project
 /.settings/
-/target/
+/target/api-cidade-spring/
+/target/classes/
+/target/m2e-wtp/
+/target/maven-status/
+/target/test-classes/
 .scannerwork/
