@@ -66,7 +66,7 @@ Pré-requisito:
 	
 	3.2. Na propriedade "spring.datasource.url", verificar ou ajustar, conforme IP mostrado no passo 3, referente a configuração de Banco de Dados.
 
-3. Reealizer "Maven clean install" para gerar o ".jar" e ".war" na pasta target dos respectivos projetos, respeitando a seguinte ordem.
+3. Realizar "Maven clean install" para gerar o ".jar" e ".war" na pasta target dos respectivos projetos, respeitando a seguinte ordem.
 
 	1- ententidades-corporativas
 	
