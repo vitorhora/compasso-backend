@@ -153,7 +153,7 @@ Console: http://localhost:81
 
 ## Integração Contínua
 
-O repositógio git está integrado com o repositório de imagens Docker Hub. Todo push realizado no git, automaticamente é disponibilizada imagem no repositório Doker Hub.
+O repositógio git está integrado com o repositório de imagens Docker Hub. Todo push realizado no git, automaticamente são disponibilizadas duas imagens no repositório Doker Hub, referentes aos microserviços cidade e cliente.
 
 Endereço: https://hub.docker.com/r/vitorhora/microservicos_springboot
 
