@@ -1,6 +1,9 @@
+/.settings
+/.sts4-cache
 /.classpath
 /.project
 /.tern-project
 /.settings/
 /target/
 .scannerwork/
+
