@@ -1,5 +1,6 @@
 package br.com.compasso.cliente;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -7,14 +8,16 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Calendar;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.test.web.servlet.MvcResult;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.compasso.business.ClienteBusiness;
@@ -25,7 +28,7 @@ import br.com.compasso.entidadescorporativas.dto.Sexo;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class ClienteApplicationTests{   
+class ClienteApplicationTests {   
 		
 		private static final String API_V1_CLIENTES = "/api/v1/clientes/";
 
@@ -55,10 +58,16 @@ class ClienteApplicationTests{
 	    	cidadeResidente.setEstado(Estado.SC);
 	    	clienteDTO.setCidadeResidente(cidadeResidente);
 	    	
-	    	mockMvc.perform(post(API_V1_CLIENTES)
-	    	        .contentType("application/json")
-	    	        .content(objectMapper.writeValueAsString(clienteDTO)))
-	    	        .andExpect(status().isCreated());   	
+	    	MvcResult result = mockMvc.perform(post(API_V1_CLIENTES)
+	    	        		   .contentType("application/json")
+	    	        		   .content(objectMapper.writeValueAsString(clienteDTO)))
+	    	        		   .andExpect(status().isCreated()).andReturn();  
+	    	
+	    	String contentAsString = result.getResponse().getContentAsString();
+	    	ClienteDTO responseClienteDTO = objectMapper.readValue(contentAsString, ClienteDTO.class);
+	    	
+	    	assertThat(responseClienteDTO).isNotNull();
+	    	assertThat(responseClienteDTO.getNomeCompleto()).isEqualTo(clienteDTO.getNomeCompleto()); 
 	    	
 	    }   
 	    
@@ -102,12 +111,18 @@ class ClienteApplicationTests{
 	    	cidadeResidente.setEstado(Estado.SC);
 	    	clienteDTO.setCidadeResidente(cidadeResidente);
 	    	
-	    	clienteBusiness.salvar(clienteDTO);
+	    	ClienteDTO responseClienteDTO = clienteBusiness.salvar(clienteDTO);
 	    	
-	    	mockMvc.perform(get(API_V1_CLIENTES + "/nome/")
-	    			.queryParam("nomeCompleto", "Fulano de Tal")
-	    	        .contentType("application/json"))
-	    	        .andExpect(status().isOk());    	
+	    	MvcResult result = mockMvc.perform(get(API_V1_CLIENTES + "/nome/")
+	    					   .queryParam("nomeCompleto", "Fulano de Tal")
+	    	                   .contentType("application/json"))
+	    	                   .andExpect(status().isOk()).andReturn(); 
+	    	
+	    	String contentAsString = result.getResponse().getContentAsString();	    	
+	    	List<ClienteDTO> responseListaClienteDTO = objectMapper.readValue(contentAsString, new TypeReference<List<ClienteDTO>>(){});	    	
+	    	
+	    	assertThat(responseListaClienteDTO).isNotEmpty();
+	    	assertThat(responseListaClienteDTO.contains(responseClienteDTO));	 
 	    } 
 	    
 	    @Test	
@@ -152,11 +167,17 @@ class ClienteApplicationTests{
 	    	cidadeResidente.setEstado(Estado.SC);
 	    	clienteDTO.setCidadeResidente(cidadeResidente);
 	    	
-	    	ClienteDTO clienteRetorno = clienteBusiness.salvar(clienteDTO);
+	    	ClienteDTO clienteRetornoDTO = clienteBusiness.salvar(clienteDTO);
 	    	
-	    	mockMvc.perform(get(API_V1_CLIENTES + clienteRetorno.getId())	    			
-	    	        .contentType("application/json"))
-	    	        .andExpect(status().isOk());    	
+	    	MvcResult result = mockMvc.perform(get(API_V1_CLIENTES + clienteRetornoDTO.getId())	    			
+	    	        		   .contentType("application/json"))
+	    	                   .andExpect(status().isOk()).andReturn();
+	    	
+	    	String contentAsString = result.getResponse().getContentAsString();
+	    	ClienteDTO responseClienteDTO = objectMapper.readValue(contentAsString, ClienteDTO.class);
+	    	
+	    	assertThat(responseClienteDTO).isNotNull();
+	    	assertThat(responseClienteDTO.getId()).isEqualTo(clienteRetornoDTO.getId()); 
 	    } 
 	    
 	    @Test	
@@ -255,11 +276,33 @@ class ClienteApplicationTests{
 	    
 	    
 	    @Test	    
-	    void consultarClientesSucesso() throws Exception {    	 	
+	    void consultarClientesSucesso() throws Exception {  
 	    	
-	    	mockMvc.perform(get(API_V1_CLIENTES)	    	
-	    	        .contentType("application/json"))
-	    	        .andExpect(status().isOk());	    	
+	    	ClienteDTO clienteDTO = new ClienteDTO();
+	    	clienteDTO.setNomeCompleto("Fulano de Tal");
+	    	clienteDTO.setSexo(Sexo.M);	  
+	    	Calendar calendar = Calendar.getInstance();
+	    	java.util.Date currentDate = calendar.getTime();
+	    	java.sql.Date date = new java.sql.Date(currentDate.getTime());
+	    	clienteDTO.setDataNascimento(date);
+	    	clienteDTO.setIdade(10);
+	    	
+	    	CidadeDTO cidadeResidente = new CidadeDTO();
+	    	cidadeResidente.setNome("Florianopolis");
+	    	cidadeResidente.setEstado(Estado.SC);
+	    	clienteDTO.setCidadeResidente(cidadeResidente);
+	    	
+	    	ClienteDTO responseClienteDTO = clienteBusiness.salvar(clienteDTO);
+	    	
+	    	MvcResult result =  mockMvc.perform(get(API_V1_CLIENTES)	    	
+	    	        		    .contentType("application/json"))
+	    	                    .andExpect(status().isOk()).andReturn();
+	    	
+	    	String contentAsString = result.getResponse().getContentAsString();	    	
+	    	List<ClienteDTO> responseListaClienteDTO = objectMapper.readValue(contentAsString, new TypeReference<List<ClienteDTO>>(){});	    	
+	    	
+	    	assertThat(responseListaClienteDTO).isNotEmpty();
+	    	assertThat(responseListaClienteDTO.contains(responseClienteDTO));	 
 	    }
 	    
 	    @Test	    

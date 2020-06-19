@@ -1,15 +1,20 @@
 package br.com.compasso.cliente;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.compasso.business.CidadeBusiness;
@@ -18,7 +23,7 @@ import br.com.compasso.entidadescorporativas.dto.Estado;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-class CidadeApplicationTests{   
+class CidadeApplicationTests {   
 		
 		private static final String API_V1_CIDADES = "/api/v1/cidades";
 
@@ -31,6 +36,7 @@ class CidadeApplicationTests{
 	    @Autowired
 	    private ObjectMapper objectMapper;	   
 	    
+	    
 	    @Test	  
 	    void cadastrarCidadeSucesso() throws Exception {
 	    	
@@ -38,10 +44,16 @@ class CidadeApplicationTests{
 	    	cidadeDTO.setNome("Florianopolis");
 	    	cidadeDTO.setEstado(Estado.SC);
 	    	
-	    	mockMvc.perform(post(API_V1_CIDADES)
-	    	        .contentType("application/json")
-	    	        .content(objectMapper.writeValueAsString(cidadeDTO)))
-	    	        .andExpect(status().isCreated());   	
+	    	MvcResult result =  mockMvc.perform(post(API_V1_CIDADES)
+				    	        .contentType("application/json")
+				    	        .content(objectMapper.writeValueAsString(cidadeDTO)))
+				    	        .andExpect(status().isCreated()).andReturn(); 
+	    	
+	    	String contentAsString = result.getResponse().getContentAsString();
+	    	CidadeDTO responseCidadeDTO = objectMapper.readValue(contentAsString, CidadeDTO.class);
+	    	
+	    	assertThat(responseCidadeDTO).isNotNull();
+	    	assertThat(responseCidadeDTO.getNome()).isEqualTo(cidadeDTO.getNome());    	
 	    	
 	    }   
 	    
@@ -64,12 +76,18 @@ class CidadeApplicationTests{
 	    	cidadeDTO.setNome("Florianopolis");	
 	    	cidadeDTO.setEstado(Estado.SC);
 	    	
-	    	cidadadeBusiness.salvar(cidadeDTO);
+	    	CidadeDTO responseCidadeDTO = cidadadeBusiness.salvar(cidadeDTO);
 	    	
-	    	mockMvc.perform(get(API_V1_CIDADES + "/nome/")
-	    			.queryParam("nome", "Florianopolis")
-	    	        .contentType("application/json"))
-	    	        .andExpect(status().isOk());    	
+	    	MvcResult result = mockMvc.perform(get(API_V1_CIDADES + "/nome/")
+				    		   .queryParam("nome", "Florianopolis")
+				    	       .contentType("application/json"))
+				    	       .andExpect(status().isOk()).andReturn();
+	    	
+	    	String contentAsString = result.getResponse().getContentAsString();	    	
+	    	List<CidadeDTO> responseListaCidadeDTO = objectMapper.readValue(contentAsString, new TypeReference<List<CidadeDTO>>(){});	    	
+	    	
+	    	assertThat(responseListaCidadeDTO).isNotEmpty();
+	    	assertThat(responseListaCidadeDTO.contains(responseCidadeDTO));	    	
 	    } 
 	    
 	    @Test	
@@ -91,11 +109,17 @@ class CidadeApplicationTests{
 	    	cidadeDTO.setNome("Florianopolis");	
 	    	cidadeDTO.setEstado(Estado.SC);
 	    	
-	    	cidadadeBusiness.salvar(cidadeDTO);
+	    	CidadeDTO responseCidadeDTO = cidadadeBusiness.salvar(cidadeDTO);
 	    	
-	    	mockMvc.perform(get(API_V1_CIDADES + "/estados/" + Estado.SC)		    
-	    	        .contentType("application/json"))
-	    	        .andExpect(status().isOk());    	
+	    	MvcResult result = mockMvc.perform(get(API_V1_CIDADES + "/estados/" + Estado.SC)		    
+	    	        		   .contentType("application/json"))
+	    	                   .andExpect(status().isOk()).andReturn();
+	    	String contentAsString = result.getResponse().getContentAsString();	
+	    	
+	    	List<CidadeDTO> responseListaCidadeDTO = objectMapper.readValue(contentAsString, new TypeReference<List<CidadeDTO>>(){});	    	
+	    	
+	    	assertThat(responseListaCidadeDTO).isNotEmpty();
+	    	assertThat(responseListaCidadeDTO.contains(responseCidadeDTO));	    
 	    } 
 	    
 	    @Test	
@@ -107,11 +131,22 @@ class CidadeApplicationTests{
 	    }	    
 	     
 	    @Test	    
-	    void consultarCidadesSucesso() throws Exception {    	 	
+	    void consultarCidadesSucesso() throws Exception {  
 	    	
-	    	mockMvc.perform(get(API_V1_CIDADES)	    	
-	    	        .contentType("application/json"))
-	    	        .andExpect(status().isOk());	    	
+	    	CidadeDTO cidadeDTO = new CidadeDTO();
+	    	cidadeDTO.setNome("Florianopolis");	
+	    	cidadeDTO.setEstado(Estado.SC);
+	    	
+	    	cidadadeBusiness.salvar(cidadeDTO);
+	    	
+	    	MvcResult result = mockMvc.perform(get(API_V1_CIDADES)	    	
+				    	       .contentType("application/json"))
+				    	       .andExpect(status().isOk()).andReturn();
+	    	
+	    	String contentAsString = result.getResponse().getContentAsString();	    	
+	    	List<CidadeDTO> responseListaCidadeDTO = objectMapper.readValue(contentAsString, new TypeReference<List<CidadeDTO>>(){});	    	
+	    	
+	    	assertThat(responseListaCidadeDTO).isNotEmpty();	    		    		    	
 	    }
 	    
 	    @Test	    

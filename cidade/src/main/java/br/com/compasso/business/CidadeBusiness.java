@@ -17,38 +17,25 @@ public class CidadeBusiness {
 	@Autowired
 	CidadeRepository cidadeRepository;
 	
-	public CidadeDTO salvar(CidadeDTO cidadeDTO) {		
-			
+	public CidadeDTO salvar(CidadeDTO cidadeDTO) {			
 		Cidade cidade = cidadeRepository.save(new Cidade(cidadeDTO.getId(), cidadeDTO.getNome(), cidadeDTO.getEstado()));	
 		
 		return transformarDTO(cidade);
+	}	
+	
+	public List<CidadeDTO> consultarPorNome(String nome){		
+		return criarListaCidades(cidadeRepository.findByNome(nome));	
 	}
 	
-	
-	public List<CidadeDTO> consultarPorNome(String nome){
-				
-		List<Cidade> listaCidades = cidadeRepository.findByNome(nome);			
+	public List<CidadeDTO> consultarPorEstado(Estado uf){				
+		return criarListaCidades(cidadeRepository.findByEstado(uf));	
+	}	
 		
-		return criaListaCidades(listaCidades);	
-	}
-	
-	public List<CidadeDTO> consultarPorEstado(Estado uf){
-		
-		List<Cidade> listaCidades = cidadeRepository.findByEstado(uf);			
-				
-		return criaListaCidades(listaCidades);	
-	}
-	
-		
-	public List<CidadeDTO> consultarTodos() {		
-		
-		List<Cidade> listaCidades = cidadeRepository.findAll();
-		
-		return criaListaCidades(listaCidades);		
-	}
+	public List<CidadeDTO> consultarTodos() {			
+		return criarListaCidades(cidadeRepository.findAll());		
+	}	
 
-
-	private List<CidadeDTO> criaListaCidades(List<Cidade> listaCidades) {
+	private List<CidadeDTO> criarListaCidades(List<Cidade> listaCidades) {
 		List<CidadeDTO> listaCidadesDTO = new ArrayList<>();
 		
 		for (Cidade cidade : listaCidades) {
@@ -65,6 +52,5 @@ public class CidadeBusiness {
 		cidadeDTO.setId(cidade.getId());
 		cidadeDTO.setNome(cidade.getNome());
 		return cidadeDTO;
-	}
-	
+	}	
 }
