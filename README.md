@@ -1,20 +1,36 @@
 # backend-springboot
-Projeto responsável por implementar estudo de caso com APIs REST, utilizando Spring Boot, JPA e Banco de Dados H2.
+Projeto responsável por implementar microserviços RESTful, utilizando Spring Boot, JPA, Banco de Dados H2 e containers Docker.
 
-Desafio: https://github.com/gustavodallanora/spring-boot-interview
+## Caso de Uso
+
+Operações expostas como endpoints REST para:
+
+    Cadastrar cidade
+    Cadastrar cliente
+    Consultar cidade pelo nome
+    Consultar cidade pelo estado
+    Consultar cliente pelo nome
+    Consultar cliente pelo Id
+    Remover cliente
+    Alterar o nome do cliente
+
+Considere o cadastro com dados básicos:
+
+    Cidades: nome e estado
+    Cliente: nome completo, sexo, data de nascimento, idade e cidade onde mora.
+
 
 ## Arquitetura
 
 Visão Arquitetura Projeto.
 
-![alt text](https://github.com/vitorhora/compasso-backend/blob/master/artefatos/imagens/Arquitetura_Projeto.png)
-
+![Alt text](/artefatos/imagens/Arquitetura_Projeto.png?raw=true "Arquitetura Projeto")
 
 
 
 Visão Arquitetura Deployment.
 
-![alt text](https://github.com/vitorhora/compasso-backend/blob/master/artefatos/imagens/Arquitetura_Deployment.png)
+![Alt text](/artefatos/imagens/Arquitetura_Deployment.png?raw=true "Arquitetura Deployment")
 
 ## Executando Projeto
 
@@ -114,7 +130,7 @@ Pré-requisito:
 ## Projeto SOAPUI
 
 
-Projeto que simula o consumo das APIs, via aplicativo.
+Projeto que simula o consumo das APIs via aplicativo.
 
 https://www.soapui.org/downloads/soapui/
 
@@ -134,5 +150,11 @@ spring.datasource.password=
 ```
 
 Console: http://localhost:81
+
+## Integração Contínua
+
+O repositógio git está integrado com o repositório de imagens Docker Hub. Todo push realizado no git, automaticamente são disponibilizadas duas imagens no repositório Doker Hub, referentes aos microserviços cidade e cliente.
+
+Endereço: https://hub.docker.com/r/vitorhora/microservicos_springboot
 
 
