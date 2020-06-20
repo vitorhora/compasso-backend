@@ -143,6 +143,8 @@ Fonte localizado em: https://github.com/vitorhora/compasso-backend/tree/master/a
 Configurações encontradas no arquivo "application.properties" do projeto cidade e cliente.
 
 ```
+#Quando precisar executar o microserviço ou testes locais, descomentar a conexão "localhost" a conexão via "IP".
+#spring.datasource.url=jdbc:h2:tcp://localhost:1521/fswdev
 spring.datasource.url=jdbc:h2:tcp://172.17.0.2:1521/fswdev
 spring.datasource.driverClassName=org.h2.Driver
 spring.datasource.username=sa
