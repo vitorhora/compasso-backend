@@ -157,46 +157,45 @@ Console: http://localhost:81
 
 O repositógio git está integrado com o repositório de imagens Docker Hub. Todo push realizado no git, automaticamente são disponibilizadas duas imagens no repositório Doker Hub, referentes aos microserviços cidade e cliente.
 
-### Endereço Banco de Dados:
-	```
-	https://hub.docker.com/r/vitorhora/banco_dados
-	```
+#### Endereço Banco de Dados:
+```
+https://hub.docker.com/r/vitorhora/banco_dados
+```
 
-	Pull na Imagem: 
-	```
-	docker pull vitorhora/banco_dados:banco_h2
-	```
+Pull na Imagem: 
+```
+docker pull vitorhora/banco_dados:banco_h2
+```
 
-	Executar BD: 
-	```
-	docker run -d -p 1521:1521 -p 81:81 -v /path/to/local/data_dir:/opt/h2-data -e H2_OPTIONS='-ifNotExists' --name=MyH2Instance <DOCKER ID>
-	```
+Executar BD: 
+```
+docker run -d -p 1521:1521 -p 81:81 -v /path/to/local/data_dir:/opt/h2-data -e H2_OPTIONS='-ifNotExists' --name=MyH2Instance <DOCKER ID>
+```
 
 
-### Endereço Microserviços: 
-	```
-	https://hub.docker.com/r/vitorhora/microservicos_springboot
-	```
-	
-	
-	Pull Microserviço Clientes: 
-	```
-	docker pull vitorhora/microservicos_springboot:api-cliente-spring
-	```
+#### Endereço Microserviços: 
+```
+https://hub.docker.com/r/vitorhora/microservicos_springboot
+```
 
-	Iniciar Microserviço Clientes:  
-	```
-	docker run -p 8080:8080 <DOCKER ID>
-	```
+Pull Microserviço Clientes: 
+```
+docker pull vitorhora/microservicos_springboot:api-cliente-spring
+```
 
-	Pull Microserviço Cidades: 
-	```
-	docker pull vitorhora/microservicos_springboot:api-cidade-spring
-	```
+Iniciar Microserviço Clientes:  
+```
+docker run -p 8080:8080 <DOCKER ID>
+```
 
-	Iniciar Microserviço Cidades: 
-	```
-	docker run -p 8081:8081 <DOCKER ID>
-	```
-	
+Pull Microserviço Cidades: 
+```
+docker pull vitorhora/microservicos_springboot:api-cidade-spring
+```
+
+Iniciar Microserviço Cidades: 
+```
+docker run -p 8081:8081 <DOCKER ID>
+```
+
 
